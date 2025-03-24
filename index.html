@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Drawings Gallery</title>
+    <style>
+           html, body {
+   	   height: 100%;
+   	   margin: 0;
+   	   padding: 0;
+   	   display: flex;
+   	   flex-direction: column;
+           min-height: 100vh;
+           }
+       body { 
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        body::before { 
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('images/company-logo.png') repeat;
+            background-size: 10%;
+            opacity: 0.05; /* Adjust transparency */
+            z-index: -1;
+        }
+        header {
+            background: rgb(103, 141, 226);
+            padding: 20px;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo {
+            width: 80px;
+        }
+        .title-container {
+            text-align: center;
+            flex-grow: 1;
+        }
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 5px 0;
+        }
+        .subtitle {
+            font-size: 18px;
+            font-weight: normal;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px;
+           place-items: center;
+
+
+            flex: 1; /* Pushes the footer to the bottom */
+            overflow-y: auto; /* Enable scrolling */
+        }
+        .pdf-container {
+            background: rgb(103, 141, 226);
+            padding: 15px;
+            border-radius: 10px;
+            border: 2px black;
+            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: fit-content; 
+            max-width: 350px;
+            height: 260px;
+            cursor: pointer;
+box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+	    
+        }
+        .pdf-container:hover {
+            transform: scale(1.05);
+            background: rgb(238, 130, 238);
+        }
+        iframe {
+            width: 100%;
+            max-width: 260px;
+            height: 180px;
+            border: none;
+            background: black;
+            margin: 0px;
+
+        }
+        .pdf-title {
+            margin: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            color: black;
+            place-items: center;
+        }
+        .pdf-placeholder {
+            width: 100%;
+            max-width: 3200px;
+            height:280px;
+            border: 2px solid white;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            background: rgba(17, 75, 209,0.5 );
+        }
+        .pdf-placeholder img {
+            width: 80px;
+            height: auto;
+        }
+         footer {
+            background: rgb(0, 0, 0);
+           
+            padding: 0px 0px;
+            width: 100%;
+            text-align: left;
+            font-size: 8px;
+            display: flex;
+            flex-wrap: wrap;
+       
+            align-items: flex-start;
+            
+    
+
+        }
+
+        
+    </style>
+</head>
+<body>
+    <header>
+        <img src="images/company-logo.png" alt="Company Logo" class="logo">
+        <div class="title-container">
+            <div class="title">The Sirpur Paper Mills Ltd.</div>
+            <div class="subtitle">PM-3 P&IDs</div>
+        </div>
+        <img src="images/company-logo2.png" alt="Company Logo" class="logo">
+    </header>
+    
+
+
+
+
+    <div class="container">
+        <div class="pdf-container" onclick="window.open('pdfs/Fresh Water Flow Sheet.pdf')">
+            <iframe src="pdfs/Fresh Water Flow Sheet.pdf" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"></iframe>
+            <div class="pdf-placeholder"><img src="images/pdf.png" alt="PDF Not Available"></div>
+            <p class="pdf-title">Fresh Water Flow Sheet</p>
+        </div>
+
+
+        <div class="pdf-container" onclick="window.open('pdfs/Steam & Condensate.pdf')">
+            <iframe src="pdfs/Steam & Condensate.pdf" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"></iframe>
+            <div class="pdf-placeholder"><img src="images/pdf-icon.png" alt="PDF Not Available"></div>
+            <p class="pdf-title">Steam & Condensate</p>
+        </div>
+
+
+        <div class="pdf-container" onclick="window.open('pdfs/Stock Flow Sheet.pdf')">
+            <iframe src="pdfs/Stock Flow Sheet.pdf" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"></iframe>
+            <div class="pdf-placeholder"><img src="images/pdf.png" alt="PDF Not Available"></div>
+            <p class="pdf-title">Stock Flow Sheet</p>
+        </div>
+
+
+        <div class="pdf-container" onclick="window.open('pdfs/Vacuum Pump Flow Sheet.pdf')">
+            <iframe src="pdfs/Vacuum Pump Flow Sheet.pdf" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"></iframe>
+            <div class="pdf-placeholder"><img src="images/pdf-icon.png" alt="PDF Not Available"></div>
+            <p class="pdf-title">Vacuum Pump Flow Sheet</p>
+        </div>
+    </div>
+
+
+
+
+
+
+    
+    <footer>
+        <!-- Company Info -->
+        <div class="">
+            <h3>Company</h3>
+            <p><strong>The Sirpur Paper Mills Ltd.</strong></p>
+            <p>Sirpur-Kaghaznagar, Kagaznagar, Telangana 504296</p>
+            <p>© 2025 The Sirpur Paper Mills Ltd. All Rights Reserved.</p>
+        </div>      
+    </footer>
+</body>
+</html>
