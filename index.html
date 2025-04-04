@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Drawings Gallery</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('images/company-logo.png') repeat;
+            background-size: 10%;
+            opacity: 0.05;
+            z-index: -1;
+        }
+        header {
+            background: rgb(103, 141, 226);
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo {
+            width: 200px;
+            height: auto;
+            max-height: 200px;
+            object-fit: contain;
+        }
+        .title-container {
+            text-align: center;
+            flex-grow: 1;
+        }
+        .title {
+            font-size: 5vw;
+            font-weight: bold;
+            margin: 0;
+        }
+        .subtitle {
+            font-size: 2vw;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            flex: 1;
+            overflow-y: auto;
+        }
+        .pdf-container {
+            background: rgb(103, 141, 226);
+            padding: 15px;
+            border-radius: 10px;
+            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 350px;
+            height: 250px;
+            cursor: pointer;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+        }
+        .pdf-container:hover {
+            transform: scale(1.05);
+            background: rgb(238, 130, 238);
+        }
+        iframe {
+            width: 100%;
+            max-width: 245px;
+            height: 74%;
+            border: none;
+            background: black;
+        }
+        .pdf-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: black;
+            text-align: center;
+            margin-top: 5px;
+        }
+footer {
+    background: rgb(0, 0, 0);
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    width: 100%;
+    margin-top: auto;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <img src="images/company-logo.png" alt="Company Logo" class="logo">
+        <div class="title-container">
+            <div class="title">The Sirpur Paper Mills Ltd.</div>
+            <div class="subtitle">PM-3 P&IDs</div>
+        </div>
+        <img src="images/company-logo2.png" alt="Company Logo" class="logo">
+    </header>
+
+    <div class="container">
+        <div class="pdf-container" onclick="window.open('pdfs/Fresh Water Flow Sheet.pdf')">
+            <iframe src="pdfs/Fresh Water Flow Sheet.pdf"></iframe>
+            <p class="pdf-title">Fresh Water Flow Sheet</p>
+        </div>
+        <div class="pdf-container" onclick="window.open('pdfs/Steam & Condensate.pdf')">
+            <iframe src="pdfs/Steam & Condensate.pdf"></iframe>
+            <p class="pdf-title">Steam & Condensate</p>
+        </div>
+        <div class="pdf-container" onclick="window.open('pdfs/Stock Flow Sheet.pdf')">
+            <iframe src="pdfs/Stock Flow Sheet.pdf"></iframe>
+            <p class="pdf-title">Stock Flow Sheet</p>
+        </div>
+        <div class="pdf-container" onclick="window.open('pdfs/Vacuum Pump Flow Sheet.pdf')">
+            <iframe src="pdfs/Vacuum Pump Flow Sheet.pdf"></iframe>
+            <p class="pdf-title">Vacuum Pump Flow Sheet</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 The Sirpur Paper Mills Ltd. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
